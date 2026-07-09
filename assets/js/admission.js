@@ -1,5 +1,5 @@
 /* ==========================================
-        ADMISSION FORM
+        ADMISSION FORM - WhatsApp Integration
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const studentClass = document.getElementById("studentClass");
     const streamBox = document.getElementById("stream-box");
     const submitBtn = document.querySelector(".submit-btn");
+
+    const WHATSAPP_NUMBER = "918233809870";
 
     if (!formSteps.length) {
         return;
@@ -217,13 +219,29 @@ document.addEventListener("DOMContentLoaded", () => {
         return "";
     }
 
-    const EMAIL_SETTINGS = {
-        enabled: false,
-        serviceId: "",
-        templateId: "",
-        publicKey: "",
-        toEmail: "sahidbhati8233@gmail.com"
-    };
+    function buildWhatsAppMessage(payload) {
+        const lines = [
+            "🎓 NEW ADMISSION REQUEST",
+            "",
+            `Student Name: ${payload.studentName}`,
+            `Father Name: ${payload.fatherName}`,
+            `Mother Name: ${payload.motherName}`,
+            `Mobile Number: ${payload.mobile}`,
+            `Email: ${payload.email}`,
+            `Date of Birth: ${payload.dob}`,
+            `Gender: ${payload.gender}`,
+            `Address: ${payload.address}`,
+            `City: ${payload.city}`,
+            `State: ${payload.state}`,
+            `PIN Code: ${payload.pincode}`,
+            `Class: ${payload.studentClass}`,
+            `Stream: ${payload.stream}`,
+            `Category: ${payload.category}`,
+            `Father's Occupation: ${payload.occupation}`,
+            ""
+        ];
+        return lines.join("\n");
+    }
 
     async function submitAdmission(payload) {
         if (!submitBtn) {
@@ -233,78 +251,37 @@ document.addEventListener("DOMContentLoaded", () => {
         const originalHtml = submitBtn.innerHTML;
 
         submitBtn.disabled = true;
-        submitBtn.innerHTML = "Sending...";
+        submitBtn.innerHTML = "Opening WhatsApp...";
         showMessage("", "");
 
         try {
             saveSubmissionBackup(payload);
 
-            const response = await fetch('/api/admissions', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            const whatsappMessage = buildWhatsAppMessage(payload);
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
-            const result = await response.json().catch(() => ({}));
-
-            if (!response.ok) {
-                throw new Error(result.message || 'Unable to send admission form. Please try again.');
+            // Open WhatsApp in new window
+            const whatsappWindow = window.open(whatsappUrl, "_blank");
+            
+            if (!whatsappWindow) {
+                throw new Error("Unable to open WhatsApp. Please check your browser popup settings.");
             }
 
-            showMessage('Admission submitted successfully.', 'success');
-            const successIndex = formSteps.findIndex((step) => step.id === 'success-page');
-
+            showMessage("Admission details opened in WhatsApp. Please press Send to submit.", "success");
+            
             setTimeout(() => {
+                const successIndex = formSteps.findIndex((step) => step.id === "success-page");
                 if (successIndex >= 0) {
                     goToStep(successIndex);
                 }
             }, 2000);
         } catch (error) {
-            console.error('Admission submit failed:', error);
-            showMessage(error.message || 'Unable to send admission form. Please try again.', 'error');
+            console.error("Admission submit failed:", error);
+            showMessage(error.message || "Unable to open WhatsApp. Please try again.", "error");
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalHtml;
-        }
-    }
-
-    function buildEmailBody(payload) {
-        return [
-            "Student Information:",
-            `- Name: ${payload.studentName}`,
-            `- DOB: ${payload.dob}`,
-            `- Gender: ${payload.gender}`,
-            `- Class: ${payload.studentClass}`,
-            `- Stream: ${payload.stream}`,
-            "", 
-            "Parent Information:",
-            `- Father Name: ${payload.fatherName}`,
-            `- Mother Name: ${payload.motherName}`,
-            `- Mobile: ${payload.mobile}`,
-            `- WhatsApp: ${payload.whatsapp}`,
-            `- Email: ${payload.email}`,
-            `- Address: ${payload.address}`,
-            `- City: ${payload.city}`,
-            `- State: ${payload.state}`,
-            `- PIN: ${payload.pincode}`
-        ].join("\n");
-    }
-
-    function sendAdmissionByMailto(payload) {
-        try {
-            const subject = "New Admission Request - Red Rose School";
-            const body = encodeURIComponent(buildEmailBody(payload));
-            const mailtoLink = `mailto:${EMAIL_SETTINGS.toEmail}?subject=${encodeURIComponent(subject)}&body=${body}`;
-            const anchor = document.createElement("a");
-            anchor.href = mailtoLink;
-            anchor.style.display = "none";
-            document.body.appendChild(anchor);
-            anchor.click();
-            document.body.removeChild(anchor);
-            return true;
-        } catch (mailtoError) {
-            console.error("Mailto send failed:", mailtoError);
-            return false;
         }
     }
 
@@ -322,20 +299,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (storageError) {
             console.error("Admission backup save failed:", storageError);
         }
-    }
-
-    function loadEmailJSSDK() {
-        if (window.emailjs) {
-            return Promise.resolve();
-        }
-
-        return new Promise((resolve, reject) => {
-            const script = document.createElement("script");
-            script.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
-            script.onload = () => resolve();
-            script.onerror = () => reject(new Error("Failed to load EmailJS SDK."));
-            document.head.appendChild(script);
-        });
     }
 
     function showMessage(message, type) {

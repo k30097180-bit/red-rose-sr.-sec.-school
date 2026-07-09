@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('jobApplicationForm');
     const notice = document.getElementById('applyNotice');
 
+    const WHATSAPP_NUMBER = "918233809870";
+
     if (!form) return;
 
     form.addEventListener('submit', async function (event) {
@@ -20,50 +22,74 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const payload = { fullName: name, email, phone, qualification, experience, subject, currentAddress: '', message, expectedSalary: '' };
-        const formData = new FormData();
-        Object.entries(payload).forEach(([key, value]) => formData.append(key, value));
-
-        const resumeInput = document.getElementById('applicantResume');
-        if (resumeInput && resumeInput.files && resumeInput.files[0]) {
-            formData.append('resume', resumeInput.files[0]);
-        }
+        const payload = {
+            fullName: name,
+            email: email,
+            phone: phone,
+            subject: subject,
+            qualification: qualification,
+            experience: experience,
+            message: message
+        };
 
         try {
-            const response = await fetch('/api/apply-job', {
-                method: 'POST',
-                body: formData
-            });
+            const whatsappMessage = buildWhatsAppMessage(payload);
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(errorText || 'Unable to submit application.');
+            // Open WhatsApp in new window
+            const whatsappWindow = window.open(whatsappUrl, "_blank");
+            
+            if (!whatsappWindow) {
+                throw new Error("Unable to open WhatsApp. Please check your browser popup settings.");
             }
 
-            showNotice('Your application has been submitted successfully. Our HR team will contact you soon.', 'success');
-            form.reset();
+            showNotice('Your application details have been opened in WhatsApp. Please press Send to submit.', 'success');
+            
+            // Save to local storage backup
+            saveApplicationBackup(payload);
+            
+            // Reset form after delay
+            setTimeout(() => {
+                form.reset();
+            }, 1000);
         } catch (error) {
-            console.warn('Job application backend unavailable, using mailto fallback.', error);
-            openMailClient(payload);
-            showNotice('No backend available in preview. Your email client has been opened to send the application manually.', 'success');
+            console.error('Job application error:', error);
+            showNotice(error.message || 'Unable to open WhatsApp. Please try again.', 'error');
         }
     });
 
-    function openMailClient(payload) {
-        const subject = `Job Application: ${encodeURIComponent(payload.fullName)} (${encodeURIComponent(payload.subject)})`;
-        const body = [
-            `Name: ${payload.fullName}`,
+    function buildWhatsAppMessage(payload) {
+        const lines = [
+            "💼 JOB APPLICATION",
+            "",
+            `Applicant Name: ${payload.fullName}`,
+            `Mobile: ${payload.phone}`,
             `Email: ${payload.email}`,
-            `Phone: ${payload.phone}`,
-            `Subject: ${payload.subject}`,
+            `Subject Specialization: ${payload.subject}`,
             `Qualification: ${payload.qualification}`,
-            `Experience: ${payload.experience} years`,
-            '',
-            `Message:\n${payload.message}`
-        ].join('\n');
+            `Years of Experience: ${payload.experience}`,
+            "",
+            `Introduction:\n${payload.message}`,
+            ""
+        ];
+        return lines.join("\n");
+    }
 
-        const mailto = `mailto:shahidbhati8233@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailto;
+    function saveApplicationBackup(payload) {
+        try {
+            const saved = localStorage.getItem("rr_job_applications");
+            const applications = saved ? JSON.parse(saved) : [];
+            const entry = {
+                ...payload,
+                submittedAt: new Date().toISOString()
+            };
+
+            applications.push(entry);
+            localStorage.setItem("rr_job_applications", JSON.stringify(applications));
+        } catch (storageError) {
+            console.error("Application backup save failed:", storageError);
+        }
     }
 
     function showNotice(text, type) {

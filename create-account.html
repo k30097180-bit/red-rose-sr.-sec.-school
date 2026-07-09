@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Red Rose Sr. Sec. School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <style>
+        .create-link { color: #1d4ed8; text-decoration: none; margin-left: 12px; }
+    </style>
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <div class="login-panel">
+                <div class="branding">
+                    <img src="assets/images/logo/logo.jpg" alt="Red Rose School Logo">
+                    <h1>Red Rose Sr. Sec. School</h1>
+                    <p>Create an account to access the student portal and admission services.</p>
+                </div>
+            </div>
+
+            <div class="login-form-wrap">
+                <div class="login-form-card">
+                    <div class="login-form-header">
+                        <h2>Create Account</h2>
+                        <p>Register with your email and create a password. The admin will be notified.</p>
+                    </div>
+
+                    <div id="registerToast" class="toast"></div>
+
+                    <form id="registerForm" class="login-form">
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address</label>
+                            <input type="email" id="registerEmail" placeholder="your.email@example.com" autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Create Password</label>
+                            <input type="password" id="registerPassword" placeholder="Create password" autocomplete="new-password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Confirm Password</label>
+                            <input type="password" id="registerConfirmPassword" placeholder="Confirm password" autocomplete="new-password">
+                        </div>
+
+                        <div class="form-row">
+                            <a href="login.html" class="create-link">Back to login</a>
+                        </div>
+
+                        <button type="submit" id="registerButton" class="login-button">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="assets/js/register.js"></script>
+</body>
+
+</html>

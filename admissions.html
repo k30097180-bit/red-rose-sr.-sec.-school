@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Admission | Red Rose Sr. Sec. School</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/admissions.css">
+</head>
+
+<header>
+
+    <!-- Top Bar -->
+
+    <div class="top-bar">
+
+        <div class="container">
+
+            <div class="top-left">
+
+                <span>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 9876543210
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-envelope"></i>
+                    info@redroseschool.com
+                </span>
+
+            </div>
+
+            <div class="top-right">
+
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fab fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Main Navbar -->
+
+    <nav class="navbar">
+
+        <div class="container">
+
+            <a href="index.html" class="logo">
+
+                <img src="assets/images/logo/logo.jpg" alt="School Logo">
+
+            </a>
+
+
+
+            <ul class="nav-links">
+
+                <li><a class="active" href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="events.html">Events</a></li>
+
+                <li><a href="teachers.html">Teachers</a></li>
+
+                <li><a href="news.html">News</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+
+
+            <div class="nav-buttons">
+
+                <a href="login.html" class="portal-btn" id="loginPortalBtn">
+
+                    Student Portal
+
+                </a>
+
+                <a href="#" class="portal-btn" id="logoutBtn" style="display:none;">
+
+                    Logout
+
+                </a>
+
+                <a href="admissions.html" class="admission-btn">
+
+                    Admission
+
+                </a>
+
+            </div>
+
+
+
+            <div class="menu-btn">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
+
+        </div>
+
+    </nav>
+    <!-- ================= MOBILE SIDEBAR ================= -->
+
+<div class="mobile-sidebar">
+
+    <div class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul>
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="about.html">About Us</a></li>
+
+        <li><a href="events.html">Events</a></li>
+
+        <li><a href="teachers.html">Teachers</a></li>
+
+        <li><a href="news.html">News</a></li>
+
+        <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+
+</div>
+
+<div class="overlay"></div>
+
+</header>
+
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <main>
+        <!-- ==========================================
+                    ADMISSION HERO
+        ========================================== -->
+        <section class="admission-hero">
+            <div class="container">
+                <div class="hero-left">
+                    <span class="hero-badge">
+                        &#127891; Admissions Open 2026&ndash;2027
+                    </span>
+
+                    <h1>
+                        Start Your Child's Bright Future
+                        <span>With Red Rose Sr. Sec. School</span>
+                    </h1>
+
+                    <p>
+                        Join one of the leading schools dedicated to academic excellence,
+                        discipline and overall personality development.
+                    </p>
+
+                    
+                </div>
+
+                <div class="hero-right">
+                    <img src="assets/images/admition/student.png" alt="Student">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+                    ADMISSION STEPS
+        ========================================== -->
+        <section class="admission-steps">
+            <div class="container">
+                <div class="steps-wrapper">
+                    <div class="step active">
+                        <div class="step-circle">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+
+                        <h4>Student</h4>
+                        <p>Information</p>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step">
+                        <div class="step-circle">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <h4>Parent</h4>
+                        <p>Information</p>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step">
+                        <div class="step-circle">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <h4>Review</h4>
+                        <p>& Submit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+                    ADMISSION FORM
+        ========================================== -->
+        <section class="admission-form-section" id="admission-form">
+            <div class="container">
+                <div class="multi-step-form">
+                    <!-- STEP 1 -->
+                    <div class="form-step active" id="step-1">
+                        <div class="form-card">
+                            <div class="form-header">
+                                <span class="form-badge">
+                                    Step 1 of 3
+                                </span>
+
+                                <h2>Student Information</h2>
+
+                                <p>
+                                    Please fill all student details carefully.
+                                </p>
+                            </div>
+
+                            <div class="form-grid">
+                                <!-- Student Name -->
+                                <div class="form-group">
+                                    <label>
+                                        Student Full Name
+                                        <span>*</span>
+                                    </label>
+
+                                    <input type="text" id="studentName" placeholder="Enter Student Name">
+                                </div>
+
+                                <!-- DOB -->
+                                <div class="form-group">
+                                    <label>
+                                        Date of Birth
+                                        <span>*</span>
+                                    </label>
+
+                                    <input type="date" id="dob">
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="form-group">
+                                    <label>
+                                        Gender
+                                        <span>*</span>
+                                    </label>
+
+                                    <select id="gender">
+                                        <option value="">Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+
+                                <!-- Category -->
+                                <div class="form-group">
+                                    <label>Category</label>
+
+                                    <select id="category">
+                                        <option>General</option>
+                                        <option>OBC</option>
+                                        <option>SC</option>
+                                        <option>ST</option>
+                                        <option>EWS</option>
+                                    </select>
+                                </div>
+
+                                <!-- Class -->
+                                <div class="form-group">
+                                    <label>
+                                        Applying For Class
+                                        <span>*</span>
+                                    </label>
+
+                                    <select id="studentClass">
+                                        <option value="">Choose Class</option>
+                                        <option>Nursery</option>
+                                        <option>LKG</option>
+                                        <option>UKG</option>
+                                        <option>Class 1</option>
+                                        <option>Class 2</option>
+                                        <option>Class 3</option>
+                                        <option>Class 4</option>
+                                        <option>Class 5</option>
+                                        <option>Class 6</option>
+                                        <option>Class 7</option>
+                                        <option>Class 8</option>
+                                        <option>Class 9</option>
+                                        <option>Class 10</option>
+                                        <option>Class 11</option>
+                                        <option>Class 12</option>
+                                    </select>
+                                </div>
+
+                                <!-- Stream -->
+                                <div class="form-group" id="stream-box" style="display:none;">
+                                    <label>
+                                        Select Stream
+                                    </label>
+
+                                    <select id="stream">
+                                        <option>Arts</option>
+                                        <option disabled>
+                                            Science (Not Available)
+                                        </option>
+                                        <option disabled>
+                                            Commerce (Not Available)
+                                        </option>
+                                    </select>
+
+                                    <small class="stream-note">
+                                        Currently only
+                                        <strong>Arts Stream</strong>
+                                        admissions are available.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="form-footer">
+                                <button type="button" class="next-btn">
+                                    Continue
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-step" id="step-2">
+                        <div class="form-card">
+                            <div class="form-header">
+                                <span class="form-badge">
+                                    Step 2 of 3
+                                </span>
+
+                                <h2>Parent Information</h2>
+
+                                <p>
+                                    Please provide the parent's contact information.
+                                </p>
+                            </div>
+
+                            <div class="form-grid">
+                                <!-- Father Name -->
+                                <div class="form-group">
+                                    <label>
+                                        Father's Name
+                                        <span>*</span>
+                                    </label>
+
+                                    <input type="text" id="fatherName" placeholder="Enter Father's Name">
+                                </div>
+
+                                <!-- Mother Name -->
+                                <div class="form-group">
+                                    <label>
+                                        Mother's Name
+                                        <span>*</span>
+                                    </label>
+
+                                    <input type="text" id="motherName" placeholder="Enter Mother's Name">
+                                </div>
+
+                                <!-- Mobile -->
+                                <div class="form-group">
+                                    <label>
+                                        Mobile Number
+                                        <span>*</span>
+                                    </label>
+
+                                    <input type="tel" id="mobile" maxlength="10" placeholder="Enter Mobile Number">
+                                </div>
+
+                                <!-- WhatsApp -->
+                                <div class="form-group">
+                                    <label>
+                                        WhatsApp Number
+                                    </label>
+
+                                    <input type="tel" id="whatsapp" maxlength="10" placeholder="Enter WhatsApp Number">
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label>
+                                        Email Address
+                                    </label>
+
+                                    <input type="email" id="email" placeholder="Enter Email Address">
+                                </div>
+
+                                <!-- Occupation -->
+                                <div class="form-group">
+                                    <label>
+                                        Father's Occupation
+                                    </label>
+
+                                    <input type="text" id="occupation" placeholder="Occupation">
+                                </div>
+
+                                <!-- Address -->
+                                <div class="form-group full-width">
+                                    <label>
+                                        Full Address
+                                        <span>*</span>
+                                    </label>
+
+                                    <textarea id="address" rows="4" placeholder="Enter Complete Address"></textarea>
+                                </div>
+
+                                <!-- City -->
+                                <div class="form-group">
+                                    <label>
+                                        City / Village
+                                    </label>
+
+                                    <input type="text" id="city" placeholder="City / Village">
+                                </div>
+
+                                <!-- State -->
+                                <div class="form-group">
+                                    <label>
+                                        State
+                                    </label>
+
+                                    <input type="text" id="state" placeholder="State">
+                                </div>
+
+                                <!-- PIN -->
+                                <div class="form-group">
+                                    <label>
+                                        PIN Code
+                                    </label>
+
+                                    <input type="number" id="pincode" placeholder="PIN Code">
+                                </div>
+                            </div>
+
+                            <div class="form-footer between">
+                                <button type="button" class="prev-btn">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    Previous
+                                </button>
+
+                                <button type="button" class="next-btn">
+                                    Continue
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="form-step" id="step-3">
+                        <div class="form-card">
+                            <div class="form-header">
+                                <span class="form-badge">
+                                    Step 3 of 3
+                                </span>
+
+                                <h2>Review Your Information</h2>
+
+                                <p>
+                                    Please verify all details before submitting.
+                                </p>
+                            </div>
+
+                            <div class="review-grid">
+                                <!-- Student Details -->
+                                <div class="review-card">
+                                    <h3>
+                                        <i class="fa-solid fa-user-graduate"></i>
+                                        Student Information
+                                    </h3>
+
+                                    <div class="review-item">
+                                        <span>Student Name</span>
+                                        <strong id="reviewStudentName">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Date Of Birth</span>
+                                        <strong id="reviewDOB">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Gender</span>
+                                        <strong id="reviewGender">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Class</span>
+                                        <strong id="reviewClass">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Stream</span>
+                                        <strong id="reviewStream">-</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Parent Details -->
+                                <div class="review-card">
+                                    <h3>
+                                        <i class="fa-solid fa-users"></i>
+                                        Parent Information
+                                    </h3>
+
+                                    <div class="review-item">
+                                        <span>Father Name</span>
+                                        <strong id="reviewFather">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Mother Name</span>
+                                        <strong id="reviewMother">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Mobile</span>
+                                        <strong id="reviewMobile">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Email</span>
+                                        <strong id="reviewEmail">-</strong>
+                                    </div>
+
+                                    <div class="review-item">
+                                        <span>Address</span>
+                                        <strong id="reviewAddress">-</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-footer between">
+                                <button type="button" class="prev-btn">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    Previous
+                                </button>
+
+                                <button type="submit" class="submit-btn">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    Submit Admission Form
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS PAGE -->
+                    <div class="form-step" id="success-page">
+                        <div class="success-card">
+                            <div class="success-icon">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+
+                            <h2>
+                                Admission Enquiry Submitted Successfully
+                            </h2>
+
+                            <p>
+                                Thank you for showing interest in
+                                <strong>Red Rose Sr. Sec. School.</strong>
+                                Our admission team will review your enquiry.
+                            </p>
+
+                            <div class="document-box">
+                                <h3>
+                                    Bring These Documents During Campus Visit
+                                </h3>
+
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-check"></i>
+                                        Birth Certificate
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-check"></i>
+                                        Aadhaar Card
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-check"></i>
+                                        Previous Class Marksheet
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-check"></i>
+                                        Transfer Certificate (If Applicable)
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-check"></i>
+                                        Passport Size Photographs
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="success-buttons">
+                                <button class="print-btn" onclick="window.print()">
+                                    <i class="fa-solid fa-print"></i>
+                                    Print Application
+                                </button>
+
+                                <a href="index.html" class="home-btn">
+                                    <i class="fa-solid fa-house"></i>
+                                    Back To Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- About -->
+
+            <div class="footer-column">
+
+                <img src="assets/images/logo/logo.jpg"
+                     alt="School Logo"
+                     class="footer-logo">
+
+                <p>
+
+                    Red Rose Sr. Sec. School is committed to providing
+                    quality education with discipline, innovation,
+                    technology and moral values.
+
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Quick Links -->
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="about.html">About Us</a></li>
+
+                    <li><a href="events.html">Events</a></li>
+
+                    <li><a href="teachers.html">Teachers</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Useful Links -->
+
+            <div class="footer-column">
+
+                <h3>Useful Links</h3>
+
+                <ul>
+
+                    <li><a href="#">Admissions</a></li>
+
+                    <li><a href="#">Student Portal</a></li>
+
+                    <li><a href="#">Teacher Portal</a></li>
+
+                    <li><a href="#">Downloads</a></li>
+
+                    <li><a href="#">Privacy Policy</a></li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Contact -->
+
+            <div class="footer-column">
+
+                <h3>Contact Us</h3>
+
+                <p>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Deshwali colony islampura masjid Makrana rajasthan
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    +91 9876543210
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    info@redroseschool.com
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <hr>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 Red Rose Sr. Sec. School. All Rights Reserved.
+
+            </p>
+
+            <p>
+
+                Designed & Developed by Shahid Khan
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+    <script src="auth.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/admission.js"></script>
+</body>
+
+</html>

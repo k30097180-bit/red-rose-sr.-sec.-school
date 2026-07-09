@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Red Rose School</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+    .topbar { background: #0f172a; color: #fff; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .topbar .bell { position: relative; cursor: pointer; font-size: 20px; }
+    .badge { position: absolute; top: -8px; right: -8px; background: #ef4444; color: #fff; border-radius: 999px; padding: 2px 7px; font-size: 12px; }
+    .panel { max-width: 980px; margin: 24px auto; background: #fff; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.08); padding: 24px; }
+    .notification-list { list-style: none; padding: 0; margin: 0; }
+    .notification-item { padding: 14px 0; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; gap: 16px; }
+    .notification-item.unread { background: #eff6ff; padding-left: 8px; padding-right: 8px; border-radius: 8px; }
+    .muted { color: #64748b; font-size: 0.95rem; }
+    button { background: #2563eb; color: #fff; border: 0; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h2>Admin Dashboard</h2>
+    <div class="bell" id="notificationBell">
+      🔔
+      <span class="badge" id="notificationBadge">0</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Notifications</h3>
+    <ul class="notification-list" id="notificationList"></ul>
+  </div>
+
+  <script src="assets/js/admin-dashboard.js"></script>
+</body>
+</html>
